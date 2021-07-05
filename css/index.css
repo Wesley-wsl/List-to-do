@@ -231,4 +231,30 @@ form {
     }
 }
 
-/*===========app-list-to-do===========*/
+/*================ lines ===============*/
+.lines li {
+    position: absolute;
+    top: -140px;
+    width: 2px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.144);
+    animation: down 1s infinite;
+    overflow: hidden;
+}
+
+@keyframes down {
+    0% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(630px);
+    }
+}
