@@ -1,0 +1,15 @@
+/*==============Global==============*/
+
+
+/*============ List to do ================*/
+
+#list-to-do {
+    margin: 11vh auto;
+    background-image: url("../assets/moonlight.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 700px;
+    box-shadow: 12px 10px 30px 10px black;
+    height: 400px;
+}
