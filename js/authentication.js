@@ -33,11 +33,3 @@ $buttonSignIn.addEventListener('click', () => {
             message.innerText = errorMessage
         });
 })
-
-function desconected() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-    }).catch((error) => {
-        console.log(error)
-    });
-}

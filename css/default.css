@@ -2,6 +2,7 @@
 :root {
     --color-main: rgba(0, 162, 255, 0.836);
     --background-main: rgba(18, 29, 78, 0.342);
+    --placeholder-color: rgba(0, 162, 255, 0.479);
 }
 
 * {
@@ -28,11 +29,7 @@ body {
 
 /*============ Default ================*/
 
-.container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+#container {
     width: 100%;
     height: 100%;
     background-color: var(--background-main);
@@ -65,4 +62,24 @@ body {
         opacity: 1;
         transform: translateX(0%);
     }
+}
+
+/*============ Place Holder ===============*/
+
+::-webkit-input-placeholder {
+    color: var(--placeholder-color);
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: var(--placeholder-color);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: var(--placeholder-color);
+}
+
+:-ms-input-placeholder {
+    color: var(--placeholder-color);
 }

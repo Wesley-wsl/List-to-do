@@ -47,9 +47,6 @@ form {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    width: 100%;
-    background-color: var(--background-main);
-    color: var(--color-main);
 }
 
 .group {

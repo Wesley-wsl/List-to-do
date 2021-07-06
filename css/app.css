@@ -1,15 +1,106 @@
 /*==============Global==============*/
+h1 {
+    border-radius: 20px;
+    width: 200px;
+    margin: 5vh auto;
+    box-shadow: 2px 2px 30px 5px black;
+}
 
+input {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50%;
+    box-shadow: 2px 2px 30px 5px black;
+    border: none;
+    color: var(--color-main);
+    outline: none;
+    margin-top: 10px;
+    text-align: center;
+}
 
-/*============ List to do ================*/
+/*============ To do list ================*/
 
-#list-to-do {
+#background {
     margin: 11vh auto;
     background-image: url("../assets/moonlight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    max-width: 700px;
+    max-width: 500px;
     box-shadow: 12px 10px 30px 10px black;
     height: 400px;
+    animation: fade 1s linear;
+    border-radius: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn,
+.desconect {
+    margin-top: 10px;
+    padding: 4px;
+    margin-left: 10px;
+    border-radius: 2px;
+    border: none;
+    background-color: rgba(1, 59, 248, 0.308);
+    color: var(--color-main);
+    box-shadow: 2px 2px 30px 5px black;
+}
+
+.desconect {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.btn:hover,
+.desconect:hover {
+    padding: 5px;
+    background-color: blue;
+}
+
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px auto;
+    width: 240px;
+    box-shadow: 2px 2px 30px 5px black;
+    color: var(--color-main);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.item,
+.btn,
+input,
+h1 {
+    animation: move 1s linear;
+}
+
+.item:nth-child(1) {
+    margin-top: 6vh;
+}
+
+.item:hover {
+    background-color: blue;
+}
+
+.trash {
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.trash:hover {
+    font-size: 16px;
 }
