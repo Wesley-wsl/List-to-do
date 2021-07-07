@@ -12,6 +12,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore()
 
 /* ==================  App  ======================== */
 
@@ -20,6 +21,9 @@ const $button = document.querySelector('button[type="button"]')
 const $list = document.querySelector('[data-js="list"]')
 const $trash = document.querySelector('.trash')
 const $desconect = document.querySelector('.desconect')
+//let storage = 0
+//let array = []
+
 
 $desconect.addEventListener('click', desconect)
 $button.addEventListener("click", addList)
@@ -31,8 +35,8 @@ function addList() {
 
     $list.innerHTML += `<li class="item">${$inputTask.value}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
     $inputTask.value = ''
-
-    //localStorage.setItem($inputTask.value)
+    //array.push($inputTask.value)
+    //setLocalStorage()
 }
 
 function remove(element) {
@@ -49,8 +53,18 @@ function desconect() {
     window.location.replace('index.html')
 }
 
-function localStorage() {
-    $list.innerHTML += `
-
-    `
+function setLocalStorage() {
+    //localStorage.setItem(`tasks`, JSON.stringify(array))
+    //localStorage.setItem(`task${storage}`, JSON.stringify($inputTask.value))
+    //storage += 1
 }
+
+function getLocalStorage() {
+    //let task = JSON.parse(localStorage.getItem('tasks'))
+    //for ( var i = 0; i < localStorage.length; ++i ) {
+    //    $list.innerHTML += `<li class="item ${localStorage.key(i)}">${localStorage.getItem(localStorage.key(i))}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
+    //}
+}
+
+getLocalStorage()
+//localStorage.clear()

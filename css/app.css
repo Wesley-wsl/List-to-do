@@ -79,6 +79,7 @@ input {
     border-radius: 10px;
     cursor: pointer;
     padding: 5px;
+    overflow: auto;
 }
 
 .item,
