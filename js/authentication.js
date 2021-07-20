@@ -26,7 +26,7 @@ let user = firebase.auth().currentUser
 $buttonSignIn.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword($inputEmail.value, $inputPassword.value)
         .then(userCredential => {
-            console.log(user)
+            console.log(userCredential)
             window.location.replace('list-to-do.html')
         })
         .catch(error => {

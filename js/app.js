@@ -1,6 +1,7 @@
 "use strict";
 
-/* ============= Confing firebase initial ============== */
+/* ============= initial confing firebase =============== */
+
 var firebaseConfig = {
     apiKey: "AIzaSyBO1Dj2mYIVOxETXbcdhuAL4BUI6p_A1Us",
     authDomain: "list-to-do-e72b8.firebaseapp.com",
@@ -12,7 +13,11 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-let db = firebase.firestore()
+let user = firebase.auth().currentUser
+
+// if(user === null) {
+//     window.location.replace('index.html')
+// }
 
 /* ==================  App  ======================== */
 
@@ -21,8 +26,7 @@ const $button = document.querySelector('button[type="button"]')
 const $list = document.querySelector('[data-js="list"]')
 const $trash = document.querySelector('.trash')
 const $desconect = document.querySelector('.desconect')
-//let storage = 0
-//let array = []
+let storage = localStorage.length
 
 
 $desconect.addEventListener('click', desconect)
@@ -33,13 +37,14 @@ function addList() {
         return;
     }
 
-    $list.innerHTML += `<li class="item">${$inputTask.value}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
+    $list.innerHTML += `<li class="item task${storage}">${$inputTask.value}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
+    setLocalStorage()
     $inputTask.value = ''
-    //array.push($inputTask.value)
-    //setLocalStorage()
 }
 
 function remove(element) {
+    let keyRemoveLocalStorage = element.parentElement.classList[1]
+    localStorage.removeItem(keyRemoveLocalStorage)
     element.parentElement.remove();
 }
 
@@ -54,17 +59,14 @@ function desconect() {
 }
 
 function setLocalStorage() {
-    //localStorage.setItem(`tasks`, JSON.stringify(array))
-    //localStorage.setItem(`task${storage}`, JSON.stringify($inputTask.value))
-    //storage += 1
+    localStorage.setItem(`task${storage}`, $inputTask.value)
+    storage += 1
 }
 
 function getLocalStorage() {
-    //let task = JSON.parse(localStorage.getItem('tasks'))
-    //for ( var i = 0; i < localStorage.length; ++i ) {
-    //    $list.innerHTML += `<li class="item ${localStorage.key(i)}">${localStorage.getItem(localStorage.key(i))}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
-    //}
+    for (let i = 0; i < storage; ++i) {
+        $list.innerHTML += `<li class="item ${localStorage.key(i)}">${localStorage.getItem(localStorage.key(i))}<a class="trash" onclick="remove(this)"><i class="far fa-trash-alt"></i></a></li>`
+    }
 }
 
 getLocalStorage()
-//localStorage.clear()
